@@ -53,20 +53,11 @@ function Contact() {
 
   return (
     <main className="contact-page">
-      <section className="contact-hero">
-        <p className="browse-eyebrow">CONTACT</p>
-        <h1>Ask about your next vehicle</h1>
-        <p>
-          Tell us what you are looking for and we will help you find the right fit.
-        </p>
-      </section>
-
       <section className="contact-panel">
         <div className="contact-copy">
-          <h2>Let’s find the right car for you</h2>
+          <h1>Ask about your next vehicle</h1>
           <p>
-            Whether you are looking for a family SUV, luxury sedan or performance coupe,
-            our team is ready to help.
+            Tell us what you are looking for and we will help you find the right fit.
           </p>
 
           {selectedVehicle ? (
