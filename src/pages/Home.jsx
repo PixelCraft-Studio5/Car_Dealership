@@ -1,6 +1,4 @@
 import { useEffect, useRef } from "react";
-import { Canvas } from "@react-three/fiber";
-import { Bounds, ContactShadows, Environment, OrbitControls, useGLTF } from "@react-three/drei";
 import { Link } from "react-router-dom";
 import vehicles from "../data/vehicles";
 
@@ -18,29 +16,6 @@ const featureReasons = [
     description: "Personalised options to help you drive away with confidence and peace of mind.",
   },
 ];
-
-function CarModelScene() {
-  const { scene } = useGLTF("/models/nissan-r34/scene.gltf");
-
-  return (
-    <div className="car-model-scene" role="img" aria-label="Interactive 3D model of a Nissan Skyline GT-R R34">
-      <Canvas camera={{ position: [4, 2.5, 6], fov: 38 }}>
-        <color attach="background" args={["#eaf3fc"]} />
-        <ambientLight intensity={1.4} />
-        <directionalLight position={[4, 6, 5]} intensity={2.4} />
-        <directionalLight position={[-4, 3, -3]} intensity={1.6} color="#6ca8e8" />
-
-        <Bounds fit clip observe margin={0.62}>
-          <primitive object={scene} />
-        </Bounds>
-
-        <ContactShadows position={[0, -0.8, 0]} opacity={0.48} scale={8} blur={2.4} far={5} />
-        <OrbitControls makeDefault enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={0.65} maxPolarAngle={Math.PI / 2.05} minPolarAngle={Math.PI / 2.8} />
-        <Environment preset="city" />
-      </Canvas>
-    </div>
-  );
-}
 
 function Home() {
   const heroCopyRef = useRef(null);
@@ -79,20 +54,14 @@ function Home() {
           </p>
 
           <div className="hero-actions">
-            <a href="#3d-model" className="primary-button">
-              View 3D Model
+            <a href="#top-cars" className="primary-button">
+              Explore top cars
             </a>
             <a href="#top-cars" className="secondary-button">
               View Top Cars
             </a>
           </div>
 
-        </div>
-      </section>
-
-      <section id="3d-model" className="model-showcase">
-        <div className="model-visual">
-          <CarModelScene />
         </div>
       </section>
 
@@ -179,4 +148,3 @@ function Home() {
 
 export default Home;
 
-useGLTF.preload("/models/nissan-r34/scene.gltf");
